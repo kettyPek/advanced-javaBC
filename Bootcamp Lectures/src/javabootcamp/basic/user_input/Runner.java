@@ -41,7 +41,7 @@ public class Runner {
 //		float totalPrice = furniturePr*tip + weight*floor*weightPr + distance*distancePr;
 //		System.out.printf("Total price is %.2f ILS", totalPrice);
 		
-		}
+		
 		
 			
 

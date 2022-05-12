@@ -111,6 +111,7 @@ public class Runner {
 					}
 				System.out.println(month+" has "+days+" days");
 			}
+		}
 
 		scanner.close();
 	}
