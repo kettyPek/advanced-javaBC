@@ -67,7 +67,7 @@ public class Runner {
 			if(tentsByHight.containsKey(tent.getHeight())) {	
 				List<Tent> tentValuse = tentsByHight.get(tent.getHeight());
 				tentValuse.add(tent);
-				tentsByHight.put(tent.getHeight(),tentValuse);}
+				tentsByHight.get(tent.getHeight()).add(tent);}
 			else
 				tentsByHight.put(tent.getHeight(),Arrays.asList(tent));
 		});
