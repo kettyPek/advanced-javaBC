@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -130,19 +131,11 @@ public class Runner {
 	}
 
 	public static Map<PastryLable,List<Pastry>> PastriesLisToMapByLableKey(List<Pastry> pastryList){
-		Map<PastryLable,List<Pastry>> pastriesByLable = new HashMap<PastryLable,List<Pastry>>();
-		pastryList.stream().forEach(pastry -> {
-			if(!pastriesByLable.containsKey(pastry.getLable())){
-				List<Pastry> newPastry = new ArrayList<Pastry>();
-				newPastry.add(pastry);
-				pastriesByLable.put(pastry.getLable(), newPastry);}
-			else{
-				List<Pastry> newPastry = pastriesByLable.get(pastry.getLable());
-				newPastry.add(pastry);
-				pastriesByLable.put(pastry.getLable(), newPastry);
-			}});
-		return pastriesByLable;
+		return pastryList.stream().collect(
+			      Collectors.groupingBy(pastry -> pastry.getLable(), HashMap::new, Collectors.toCollection(ArrayList::new)));
 	}
+	
+	
 	
 	public static void mapPastrySerialization(Map<PastryLable,List<Pastry>> pastriesMap) {
 		
