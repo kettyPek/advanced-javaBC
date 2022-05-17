@@ -1,0 +1,19 @@
+{
+	"name": "Pizza",
+	"calories": 500,
+	"lable": "DAIRY",
+	"ingredients": [
+		{
+			"name": "Flaor",
+			"weight": 500.0
+		},
+		{
+			"name": "cheeze",
+			"weight": 200.0
+		},
+		{
+			"name": "Tomatos sauce",
+			"weight": 50.0
+		}
+	]
+}

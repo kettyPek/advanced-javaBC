@@ -1,0 +1,46 @@
+{
+	"students": [
+		{
+			"id": 123456789,
+			"isMail": false,
+			"fiestName": "ketty",
+			"lastName": "pekarsky",
+			"notes": [
+				{
+					"id": 123,
+					"from": "ketty",
+					"to": "dani",
+					"message": "hello"
+				}
+			]
+		},
+		{
+			"id": 456789123,
+			"isMail": true,
+			"fiestName": "dani",
+			"lastName": "krav",
+			"notes": [
+				{
+					"id": 456,
+					"from": "dani",
+					"to": "ketty",
+					"message": "hello"
+				},
+				{
+					"id": 789,
+					"from": "dani",
+					"to": "nikol",
+					"message": "hello"
+				}
+			]
+		},
+		{
+			"id": 123789456,
+			"isMail": false,
+			"fiestName": "nikol",
+			"lastName": "pekarsky",
+			"notes": [
+			]
+		}
+	]
+}
