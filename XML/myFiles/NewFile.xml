@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<television>
+	<serialNumber unige = "false">123</serialNumber>
+	<manufacure>Samsung</manufacure>
+	<Size>
+		<length>100</length>
+		<height>80</height>
+	</Size>
+</television>

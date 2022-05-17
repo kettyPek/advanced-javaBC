@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cars>
+  <car>
+    <manufacturer>Subaru</manufacturer>
+    <model>B4</model>
+    <year>2006</year>
+    <licencePlate>
+      <plateNumber unique="true">123456789</plateNumber>
+      <plateColor>yellow</plateColor>
+    </licencePlate>
+  </car>
+  <car>
+    <manufacturer>FolksWagen</manufacturer>
+    <model>GOLF</model>
+    <year>2014</year>
+    <licencePlate>
+      <plateNumber unique="true">456789123</plateNumber>
+      <plateColor>yellow</plateColor>
+    </licencePlate>
+  </car>
+  <car>
+    <manufacturer>FolksWagen</manufacturer>
+    <model>PASSAT</model>
+    <year>2016</year>
+    <licencePlate>
+      <plateNumber unique="true">789456123</plateNumber>
+      <plateColor>yellow</plateColor>
+    </licencePlate>
+  </car>
+</cars>
