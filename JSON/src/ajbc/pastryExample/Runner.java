@@ -51,14 +51,14 @@ public class Runner {
 		System.out.println("------Deserialized pastry------");
 		System.out.println(deserializedPastry);
 		
-		ListOfPastriesSerialization(pastries);
-		List<Pastry> deserializedPastryList = ListOfDeserializationPastries();
+		listOfPastriesSerialization(pastries);
+		List<Pastry> deserializedPastryList = listOfDeserializationPastries();
 		System.out.println("\n------List of deserialized pastries------");
 		deserializedPastryList.forEach(pastry -> System.out.println(pastry));
 		
-		Map<PastryLable,List<Pastry>> pastriesMap = PastriesLisToMapByLableKey(pastries);
+		Map<PastryLable,List<Pastry>> pastriesMap = pastriesLisToMapByLableKey(pastries);
 //		mapPastrySerialization(pastriesMap) ;
-		Map<PastryLable,List<Pastry>> pastriesDeserializedMap = MapOfPastriesDeserialization();
+		Map<PastryLable,List<Pastry>> pastriesDeserializedMap = mapOfPastriesDeserialization();
 		System.out.println("\n------Map of deserialized pastries with Lable as key------");
 		pastriesDeserializedMap.entrySet().forEach(System.out::println);
 		
@@ -95,7 +95,7 @@ public class Runner {
 		return pastry;
 	}
 	
-	public static void ListOfPastriesSerialization(List<Pastry> pastries) {
+	public static void listOfPastriesSerialization(List<Pastry> pastries) {
 
 		Gson gson = new Gson();
 		File file = new File("MyFiles/pasrtyList.json");
@@ -108,7 +108,7 @@ public class Runner {
 		}
 	}
 	
-	public static List<Pastry> ListOfDeserializationPastries() {
+	public static List<Pastry> listOfDeserializationPastries() {
 		
 		List<Pastry> pastries = new ArrayList<Pastry>();
 
@@ -130,7 +130,7 @@ public class Runner {
 		return pastries;
 	}
 
-	public static Map<PastryLable,List<Pastry>> PastriesLisToMapByLableKey(List<Pastry> pastryList){
+	public static Map<PastryLable,List<Pastry>> pastriesLisToMapByLableKey(List<Pastry> pastryList){
 		return pastryList.stream().collect(
 			      Collectors.groupingBy(pastry -> pastry.getLable(), HashMap::new, Collectors.toCollection(ArrayList::new)));
 	}
@@ -150,7 +150,7 @@ public class Runner {
 		}
 	}
 
-	public static Map<PastryLable,List<Pastry>> MapOfPastriesDeserialization(){
+	public static Map<PastryLable,List<Pastry>> mapOfPastriesDeserialization(){
 		Map<PastryLable,List<Pastry>> pastriesMap = new HashMap<PastryLable,List<Pastry>>();
 		
 		File file = new File("MyFiles/pasrtyMap.json");
