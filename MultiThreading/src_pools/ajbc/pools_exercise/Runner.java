@@ -15,8 +15,8 @@ public class Runner {
 
 	public static void main(String[] args) {
 		
-		final int CORE_THREADS = 5;
-		final int MAX_POOL_SIZE = 6;
+		final int CORE_THREADS = 1;
+		final int MAX_POOL_SIZE = 2;
 		final long KEEP_ALIVE_TIME = 3;
 		final int CAPACITY = 5;
 		

@@ -16,7 +16,7 @@ public class Runner {
 
 		ForkJoinPool pool = new ForkJoinPool(2);
 
-		pool.execute(new SummationTask(0,ARRAY_SIZE-1,array));
+		pool.execute(new SummationTask(0,ARRAY_SIZE,array));
 
 		pool.shutdown();
 		pool.awaitTermination(1, TimeUnit.SECONDS);
