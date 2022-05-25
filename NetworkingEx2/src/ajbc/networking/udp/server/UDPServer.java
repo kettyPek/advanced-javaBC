@@ -1,3 +1,4 @@
+
 package ajbc.networking.udp.server;
 
 import java.io.IOException;
@@ -45,12 +46,12 @@ public class UDPServer {
 	}
 
 	private boolean cityExist(String city) {
-
-		for (var forecast : forecasts)
-			if (forecast.getCity().equals(city)) {
+		for (var forecast : forecasts) {
+			if (forecast.getCity().contains(city)) {
 				currentForecast = forecast;
 				return true;
 			}
+		}
 		return false;
 	}
 
@@ -86,7 +87,7 @@ public class UDPServer {
 				int clietPort = receivedPacket.getPort();
 
 				// get client massage
-				String data = new String(receivedPacket.getData());
+				String data = new String(receivedPacket.getData()).trim();
 				
 				try {
 					int selection = Integer.parseInt(data);
@@ -94,9 +95,9 @@ public class UDPServer {
 	
 				}catch(Exception e) {
 					if(cityExist(data))
-						myBytes = ("true").getBytes();
+						myBytes = ("TRUE").getBytes();
 					else
-						myBytes = ("City doesnt exist").getBytes();
+						myBytes = ("FALSE").getBytes();
 				}
 				
 				DatagramPacket packetToSent = new DatagramPacket(myBytes, myBytes.length, clietAddress, clietPort);

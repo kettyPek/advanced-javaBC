@@ -18,6 +18,7 @@ public class UDPClient {
 	private int serverPort;
 	private int clientPort;
 	private DatagramSocket clientSocket;
+	private boolean inProccess = true;
 
 	public UDPClient(String serverName, int serverPort, int clientPort) {
 		this.serverName = serverName;
@@ -64,9 +65,10 @@ public class UDPClient {
 				clientSocket.receive(receivedPacket);
 
 				// extract massage from packet
-				serverMsg = new String(receivedPacket.getData());
+				serverMsg = new String(receivedPacket.getData()).trim();
 				System.out.println(serverMsg);
 				
+				inProccess = false;	
 			}
 
 		} catch (IOException e) {
@@ -81,7 +83,7 @@ public class UDPClient {
 			do{
 				// creating data
 				System.out.println("Enter city:");
-				city = scanner.next();
+				city = scanner.nextLine();
 
 				// creating datagram
 				byte[] msgBytes = city.getBytes();
@@ -92,7 +94,7 @@ public class UDPClient {
 				
 				receiveData();
 				
-			}while(!city.equals("ex"));
+			}while(inProccess);
 				
 		} catch (UnknownHostException e) {
 			System.out.println("Server address could not be found");
