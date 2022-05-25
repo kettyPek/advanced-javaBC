@@ -12,10 +12,10 @@ public class BasicExample {
 		System.out.println("Host address: " + ip + ", host name: " + hostName);
 		
 		InetAddress technionAdress = InetAddress.getByName("technion.ac.il");
-		System.out.println("\nTechnion ip address and name: " + technionAdress);
+		System.out.println("\nTechnion ip address and host name: " + technionAdress);
 		
 		InetAddress facebokAddress = InetAddress.getByName("facebook.com");
-		System.out.println("\nFacebook ip address and name: " + facebokAddress);
+		System.out.println("\nFacebook ip address and host name: " + facebokAddress);
 	}
 
 }
