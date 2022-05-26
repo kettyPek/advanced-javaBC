@@ -8,12 +8,15 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import ajbc.tracking_device.Location;
+
 public class TCPClient {
 
 	private final  String SERVER_NAME ;
 	private final  int SERVER_PORT ;
 	private final long ID;
 	private Socket socket = null;
+	private Location location;
 	
 	public TCPClient(String serverName, int serverPort, long id) {
 		this.SERVER_NAME = serverName;
@@ -35,13 +38,22 @@ public class TCPClient {
 		PrintWriter printer = null;
 		
 		try {
-			
 			// sending data
+			bufferReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			
 			printer = new PrintWriter(socket.getOutputStream(),true);
-			printer.println("Hello");
+			printer.println(ID);
+			System.out.println("ID was sent to the server");
+			
+			String line1 = bufferReader.readLine();
+			System.out.println("Server says: " + line1);
+			location = new Location(100,200);
+			printer = new PrintWriter(socket.getOutputStream(),true);
+			printer.println(location);
+			System.out.println("Location details were sent to the server");
 			
 			// reading data
-			bufferReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			
 			
 			String line = bufferReader.readLine();
 			System.out.println("Server says: " + line);
@@ -49,9 +61,6 @@ public class TCPClient {
 			
 		} catch (UnknownHostException e) {
 			System.out.println("Server is not found");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("Socket failed");
 			e.printStackTrace();
 		}finally {
 			if(socket!=null)

@@ -14,4 +14,17 @@ public class Location {
 		this.altitude = altitude;
 		this.timeStamp = LocalTime.now();
 	}
+	
+	public Location(double longtitude, double altitude,LocalTime timeStamp) {
+		super();
+		this.longtitude = longtitude;
+		this.altitude = altitude;
+		this.timeStamp = timeStamp;
+	}
+
+	@Override
+	public String toString() {
+		return longtitude + "-" + altitude + "-" + timeStamp ;
+	}
+	
 }
