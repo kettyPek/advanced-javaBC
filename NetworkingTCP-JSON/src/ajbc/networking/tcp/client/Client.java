@@ -16,7 +16,6 @@ import com.google.gson.Gson;
 
 import ajbc.networking.restaurant.Dish;
 import ajbc.networking.restaurant.Order;
-import ajbc.serialization.Student;
 
 public class Client {
 
